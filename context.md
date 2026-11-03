@@ -15,6 +15,8 @@ La página de inicio permite descubrir alojamientos. Incluye una barra superior 
 - Filtros de categorías: icono y etiqueta para categorías como Playa, Mansiones o Tendencias.
 - Cuadrícula responsiva de alojamientos.
 - Tarjeta de alojamiento reutilizable: placeholder de foto, título, precio por noche y valoración con estrellas.
+- Carruseles por destino o tema, con controles anterior y siguiente.
+- Pie de página con enlaces de ayuda, anfitriones, información legal, idioma y moneda.
 - Indicador de carga.
 
 ### 2. Catálogo — `/catalog`
@@ -23,6 +25,7 @@ La página de catálogo muestra los resultados de búsqueda y permite ordenarlos
 
 **Componentes principales:**
 - Cabecera de resultados: número de alojamientos y selector de orden.
+- Filtros rápidos en formato de chips.
 - Lista o cuadrícula de tarjetas de alojamiento reutilizadas desde Inicio.
 - Área de mapa con placeholder.
 - Estado de ordenación que reorganiza los alojamientos por precio.
@@ -38,6 +41,9 @@ La página de detalle presenta la información completa de un alojamiento selecc
 - Información del anfitrión: avatar de placeholder, nombre y años como anfitrión.
 - Cuadrícula de servicios: iconos y etiquetas.
 - Tarjeta de reserva: precio por noche, contador de huéspedes y botón de acción.
+- Calendario visual de disponibilidad.
+- Resumen de valoración y reseñas.
+- Mapa de ubicación aproximada.
 - Indicador de carga.
 
 ## Usuario y objetivo
@@ -52,6 +58,8 @@ El usuario es una persona que busca un alojamiento para un viaje y quiere compar
 - Definir los componentes funcionales con `const`.
 - Mantener cada componente en torno a 80 líneas de JSX y lógica como máximo; dividirlo si lo supera.
 - La cuadrícula de Inicio debe adaptarse al tamaño de pantalla: una columna en móvil y varias en escritorio.
+- Las especificaciones de componentes se encuentran en `.ai-context/components-specs/` y definen contratos TypeScript, estados UX/UI, accesibilidad y comportamiento responsive.
+- Las capturas de `assets-dev/reference-image/` son la referencia visual para la distribución mobile-first, los carruseles, los filtros, el mapa y las secciones del detalle.
 
 ## Ampliaciones opcionales
 

@@ -100,6 +100,8 @@ Debe incluir:
 - Cuadrícula de alojamientos.
 - Tarjetas reutilizables de alojamiento.
 - Estado de carga visible durante la carga simulada.
+- Carruseles horizontales agrupados por destino o tema.
+- Pie de página con enlaces agrupados de soporte, anfitriones e información legal.
 
 Comportamiento requerido:
 
@@ -117,6 +119,7 @@ Debe incluir:
 - Cabecera de resultados.
   - Número de alojamientos encontrados.
   - Selector de orden.
+- Barra de filtros rápidos en formato de chips.
 - Lista o cuadrícula de tarjetas de alojamiento.
 - Área de mapa.
   - En escritorio debe aparecer junto a los resultados.
@@ -167,6 +170,12 @@ La página debe incluir obligatoriamente estas cinco secciones:
    - Controles para aumentar o reducir huéspedes.
    - Botón principal para iniciar la reserva.
 
+La composición puede complementar estas cinco secciones con:
+
+- Calendario visual de disponibilidad.
+- Resumen de valoraciones y reseñas.
+- Mapa de ubicación aproximada.
+
 ## 7. Inventario de componentes
 
 | Componente | Función |
@@ -180,7 +189,10 @@ La página debe incluir obligatoriamente estas cinco secciones:
 | `LoadingState` | Mostrar una indicación visual mientras se cargan los datos. |
 | `ResultsHeader` | Mostrar el número de resultados y el selector de orden. |
 | `SortSelect` | Permitir seleccionar el orden de los resultados. |
-| `MapPlaceholder` | Representar el área de mapa del catálogo. |
+| `MapPanel` | Representar el área de mapa del catálogo con placeholder y pines simulados. |
+| `FilterChips` | Mostrar filtros rápidos del catálogo. |
+| `ListingCarousel` | Agrupar y desplazar tarjetas por destino o tema en Home. |
+| `SiteFooter` | Mostrar enlaces informativos y legales compartidos. |
 | `BackLink` | Permitir regresar al catálogo mediante navegación interna. |
 | `PhotoGallery` | Mostrar la galería del alojamiento y controlar la imagen activa. |
 | `RoomHeader` | Mostrar el título, ubicación, valoración y reseñas del alojamiento. |
@@ -188,9 +200,13 @@ La página debe incluir obligatoriamente estas cinco secciones:
 | `AmenitiesGrid` | Mostrar los servicios disponibles en el alojamiento. |
 | `AmenityItem` | Representar un servicio individual. |
 | `BookingCard` | Mostrar el precio y gestionar la configuración inicial de la reserva. |
-| `GuestCounter` | Incrementar o reducir el número de huéspedes. |
+| `AvailabilityCalendar` | Mostrar disponibilidad y selección visual de fechas. |
+| `ReviewsSection` | Mostrar valoración, categorías y reseñas resumidas. |
+| `LocationMap` | Mostrar la zona aproximada del alojamiento. |
 
 Los nombres anteriores son orientativos. Pueden adaptarse a las convenciones del proyecto, siempre que se mantengan las responsabilidades separadas y la reutilización indicada.
+
+Las especificaciones detalladas de estos componentes se encuentran en `.ai-context/components-specs/`. Cada archivo define su ruta, tipo de componente, contrato TypeScript, dependencias permitidas, estados UX/UI, comportamiento mobile-first, requisitos de accesibilidad y una estructura JSX de referencia.
 
 ## 8. Estado y datos
 
@@ -332,6 +348,7 @@ El diseño debe comenzar en un viewport de 375 px de ancho. Este viewport debe q
 - Incluye la sección de amenities.
 - Incluye la tarjeta de reserva.
 - La información mostrada corresponde al identificador de la ruta.
+- Incluye, cuando estén disponibles los datos simulados, disponibilidad, reseñas y ubicación aproximada sin revelar una dirección exacta.
 
 ### Responsive y trazabilidad
 
