@@ -21,7 +21,7 @@ export const RoomExperience = ({ id }: { id: string }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [guests, setGuests] = useState(1);
   const [selectedDays, setSelectedDays] = useState<number[]>([]);
-  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 450); return () => window.clearTimeout(timer); }, [id]);
+  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 1200); return () => window.clearTimeout(timer); }, [id]);
   const room = rooms.find((item) => item.id === id);
   if (!loaded) return <><Navbar/><LoadingState label="Cargando alojamiento" variant="detail"/></>;
   if (!room) return <><Navbar/><main className="mx-auto min-h-[50vh] w-full max-w-screen-2xl flex-1 px-5 py-16 sm:px-8"><h1 className="text-2xl font-semibold">No encontramos este alojamiento</h1><a href="/catalog" className="mt-4 inline-block underline">Volver al catálogo</a></main></>;

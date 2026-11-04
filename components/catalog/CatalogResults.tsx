@@ -15,7 +15,7 @@ export const CatalogResults = () => {
   const [loaded, setLoaded] = useState(false);
   const [sort, setSort] = useState<SortOption>("recommended");
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 450); return () => window.clearTimeout(timer); }, []);
+  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 1200); return () => window.clearTimeout(timer); }, []);
   const results = useMemo(() => {
     const filtered = listings.filter((listing) => !activeFilters.includes("pool") || listing.category === "pools");
     if (sort === "price-asc") return [...filtered].sort((a, b) => a.pricePerNight - b.pricePerNight);

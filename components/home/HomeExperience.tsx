@@ -13,7 +13,7 @@ export const HomeExperience = () => {
   const [loaded, setLoaded] = useState(false);
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
-  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 450); return () => window.clearTimeout(timer); }, []);
+  useEffect(() => { const timer = window.setTimeout(() => setLoaded(true), 1200); return () => window.clearTimeout(timer); }, []);
   const filtered = useMemo(() => listings.filter((listing) => {
     const matchesText = `${listing.title} ${listing.location}`.toLowerCase().includes(query.trim().toLowerCase());
     return matchesText && (activeCategory === "all" || listing.category === activeCategory);
