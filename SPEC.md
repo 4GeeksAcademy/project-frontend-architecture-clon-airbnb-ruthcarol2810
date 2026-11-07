@@ -48,6 +48,7 @@ El mapa del catálogo puede representarse inicialmente mediante un placeholder v
 - React.
 - App Router.
 - Tailwind CSS.
+- Font Awesome Free para los iconos de la interfaz.
 - Componentes funcionales de React.
 
 La configuración actual del proyecto utiliza Next.js `16.4.5`, React `19.3.0`, TypeScript y Tailwind CSS.
@@ -67,6 +68,7 @@ La configuración actual del proyecto utiliza Next.js `16.4.5`, React `19.3.0`, 
 - Definir todos los componentes como constantes con funciones de React.
 - No utilizar componentes de clase.
 - Mantener la seguridad de tipos mediante interfaces o tipos de TypeScript.
+- Utilizar iconos de Font Awesome en lugar de glifos decorativos para la iconografía de interfaz.
 - Cada componente debe vivir en su propio archivo dentro de `/components`.
 - Ningún componente debe superar aproximadamente 80 líneas de JSX y lógica. Si supera este límite, debe dividirse en componentes más pequeños y enfocados.
 
@@ -76,6 +78,8 @@ La configuración actual del proyecto utiliza Next.js `16.4.5`, React `19.3.0`, 
 - No utilizar enlaces planos con `<a href="...">` para navegar entre las vistas internas.
 - La navegación entre `/`, `/catalog` y `/rooms/[id]` debe funcionar sin recargar completamente el navegador.
 - Cada tarjeta de alojamiento debe enlazar con el detalle correspondiente mediante `/rooms/[id]`.
+- El icono de favorito debe mostrarse vacío inicialmente y relleno en rosa cuando el alojamiento está guardado.
+- El estado de favorito debe poder activarse/desactivarse y mantenerse durante la sesión actual del navegador, sincronizado entre catálogo y detalle.
 - La página de detalle debe ofrecer una forma clara de regresar al catálogo.
 - Los estados de carga deben ser visibles mientras se simula la obtención de datos.
 - La interfaz debe mantener un comportamiento coherente en móvil, tablet y escritorio.
@@ -99,6 +103,7 @@ Debe incluir:
   - Estado visual para la categoría activa.
 - Cuadrícula de alojamientos.
 - Tarjetas reutilizables de alojamiento.
+- Acción de favorito en cada tarjeta, con corazón vacío o relleno según el estado de guardado.
 - Estado de carga visible durante la carga simulada.
 - Carruseles horizontales agrupados por destino o tema.
 - Pie de página con enlaces agrupados de soporte, anfitriones e información legal.
@@ -153,6 +158,7 @@ La página debe incluir obligatoriamente estas cinco secciones:
    - Valoración.
    - Número de reseñas.
    - Acción para regresar al catálogo.
+  - Acción para guardar/quitar de favoritos, sincronizada con la tarjeta del alojamiento.
 
 3. **Información del anfitrión**
    - Avatar de placeholder.
@@ -186,6 +192,7 @@ La composición puede complementar estas cinco secciones con:
 | `CategoryItem` | Representar una categoría individual con su icono, etiqueta y estado visual. |
 | `ListingGrid` | Organizar una colección de alojamientos en una cuadrícula responsive. |
 | `ListingCard` | Mostrar la imagen, título, ubicación, precio y valoración de un alojamiento. Debe reutilizarse en Home y Catálogo. |
+| `FavoritesProvider` | Compartir los alojamientos favoritos y persistirlos en `sessionStorage` durante la sesión actual del navegador. |
 | `LoadingState` | Mostrar una indicación visual mientras se cargan los datos. |
 | `ResultsHeader` | Mostrar el número de resultados y el selector de orden. |
 | `SortSelect` | Permitir seleccionar el orden de los resultados. |
@@ -219,6 +226,7 @@ La implementación debe utilizar `useState` en al menos tres casos distintos ent
 - Orden de resultados.
 - Número de huéspedes.
 - Índice de la galería de fotografías.
+- Estado de favoritos, compartido entre las vistas del catálogo y detalle.
 
 La implementación debe utilizar `useEffect` para simular la carga de datos al montar el componente en las tres páginas. Mientras los datos no estén disponibles debe mostrarse un estado de carga visible.
 
@@ -323,6 +331,8 @@ El diseño debe comenzar en un viewport de 375 px de ancho. Este viewport debe q
 
 - La búsqueda filtra los alojamientos desde la página de inicio.
 - La categoría activa tiene un estado visual identificable.
+- Los iconos de categorías, navegación y amenities se representan con Font Awesome y mantienen su alineación en móvil, tablet y escritorio.
+- Los corazones de favorito aparecen vacíos por defecto; al activarlos se rellenan de rosa y el mismo estado se refleja en el catálogo y el detalle durante la sesión.
 - El catálogo permite ordenar por precio ascendente y descendente.
 - El contador de huéspedes modifica el número mostrado.
 - La galería permite avanzar y retroceder entre fotografías.
@@ -384,6 +394,5 @@ Una vez completados y validados los requisitos obligatorios, pueden añadirse la
 - Calcular el precio total según el número de noches.
 - Añadir filtros adicionales de precio, capacidad o servicios.
 - Añadir una galería con miniaturas.
-- Añadir estados de favoritos o guardado de alojamientos.
 
 Estas ampliaciones no deben comprometer el cumplimiento de los criterios obligatorios ni introducir dependencias innecesarias.

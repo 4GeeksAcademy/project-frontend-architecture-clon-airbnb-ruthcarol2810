@@ -15,6 +15,7 @@ La página de inicio permite descubrir alojamientos. Incluye una barra superior 
 - Filtros de categorías: icono y etiqueta para categorías como Playa, Mansiones o Tendencias.
 - Cuadrícula responsiva de alojamientos.
 - Tarjeta de alojamiento reutilizable: placeholder de foto, título, precio por noche y valoración con estrellas.
+- Acción para marcar cada alojamiento como favorito, inicialmente con un corazón vacío.
 - Carruseles por destino o tema, con controles anterior y siguiente.
 - Pie de página con enlaces de ayuda, anfitriones, información legal, idioma y moneda.
 - Indicador de carga.
@@ -29,6 +30,7 @@ La página de catálogo muestra los resultados de búsqueda y permite ordenarlos
 - Lista o cuadrícula de tarjetas de alojamiento reutilizadas desde Inicio.
 - Área de mapa con placeholder.
 - Estado de ordenación que reorganiza los alojamientos por precio.
+- Estado visual del corazón sincronizado con la ficha de detalle del alojamiento.
 
 ### 3. Detalle de habitación — `/rooms/[id]`
 
@@ -40,6 +42,7 @@ La página de detalle presenta la información completa de un alojamiento selecc
 - Cabecera del alojamiento: título, valoración, número de reseñas y ubicación.
 - Información del anfitrión: avatar de placeholder, nombre y años como anfitrión.
 - Cuadrícula de servicios: iconos y etiquetas.
+- Acción para guardar o quitar el alojamiento de favoritos, con el corazón vacío al inicio y rosa relleno al activarlo.
 - Tarjeta de reserva: precio por noche, contador de huéspedes y botón de acción.
 - Calendario visual de disponibilidad.
 - Resumen de valoración y reseñas.
@@ -53,6 +56,7 @@ El usuario es una persona que busca un alojamiento para un viaje y quiere compar
 ## Navegación y criterios de implementación
 
 - Las tarjetas de Inicio y Catálogo enlazan con el detalle del alojamiento correspondiente.
+- Los iconos de interfaz usan Font Awesome. Los favoritos se comparten entre tarjetas y ficha de detalle y se conservan en `sessionStorage` durante la sesión actual del navegador.
 - Usar el componente `Link` de Next.js para la navegación interna; no usar etiquetas `<a href="...">` planas.
 - Cada componente debe vivir en su propio archivo dentro de `/components`.
 - Definir los componentes funcionales con `const`.

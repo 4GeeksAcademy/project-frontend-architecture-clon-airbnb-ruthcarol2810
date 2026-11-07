@@ -1,3 +1,5 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
 export interface Listing {
   id: string;
   title: string;
@@ -13,7 +15,7 @@ export interface Listing {
 export interface Category {
   id: string;
   label: string;
-  icon: string;
+  icon: IconDefinition;
 }
 
 export type SortOption = "recommended" | "price-asc" | "price-desc";
@@ -21,7 +23,7 @@ export type SortOption = "recommended" | "price-asc" | "price-desc";
 export interface Amenity {
   id: string;
   label: string;
-  icon: string;
+  icon: IconDefinition;
 }
 
 export interface Host {

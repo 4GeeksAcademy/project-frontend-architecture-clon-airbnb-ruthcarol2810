@@ -11,6 +11,7 @@ Frontend educativo inspirado en la experiencia de Airbnb para explorar alojamien
   - Categorías de exploración.
   - Carruseles de alojamientos agrupados por destino o tema.
   - Tarjetas reutilizables con imagen, precio, ubicación y valoración.
+  - Favoritos con corazón vacío que se rellena en rosa y se sincroniza con el detalle durante la sesión del navegador.
 - Catálogo de resultados con:
   - Número de alojamientos encontrados.
   - Filtros rápidos.
@@ -25,6 +26,7 @@ Frontend educativo inspirado en la experiencia de Airbnb para explorar alojamien
   - Calendario visual de disponibilidad.
   - Valoraciones, reseñas y ubicación aproximada.
 - Carga simulada de datos con estados de carga visibles.
+- Iconografía con Font Awesome y favicon SVG basado en el logo del sitio.
 - Navegación interna sin recarga completa mediante `Link` de Next.js.
 - Diseño mobile-first, optimizado inicialmente para un viewport de 375 px.
 - Tipos TypeScript para las estructuras principales de datos.
@@ -36,6 +38,7 @@ Frontend educativo inspirado en la experiencia de Airbnb para explorar alojamien
 - [React](https://react.dev/) 19.3.0
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Font Awesome Free](https://fontawesome.com/)
 - App Router de Next.js
 - ESLint
 
@@ -109,6 +112,7 @@ Las páginas utilizan el App Router y los componentes se organizan por responsab
 │   └── rooms/[id]/
 ├── components/
 │   ├── catalog/
+│   ├── favorites/
 │   ├── feedback/
 │   ├── layout/
 │   ├── listings/
@@ -166,6 +170,7 @@ Comprueba también manualmente:
 3. Que la interfaz sea usable a 375 px de ancho.
 4. Que el catálogo reorganice los resultados y muestre el mapa según el viewport.
 5. Que la galería y el contador de huéspedes respondan a la interacción.
+6. Que el corazón cambie de vacío a rosa relleno al guardar un alojamiento y que el estado coincida entre la tarjeta y su detalle durante la sesión actual.
 
 ## 🤝 Contribución
 

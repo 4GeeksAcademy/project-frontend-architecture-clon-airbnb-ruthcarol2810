@@ -1,13 +1,26 @@
 import type { Category, Listing, Room } from "@/types/listing";
+import {
+  faArrowTrendUp,
+  faHouse,
+  faMountainSun,
+  faPalette,
+  faPersonSwimming,
+  faUmbrellaBeach,
+  faKitchenSet,
+  faParking,
+  faSnowflake,
+  faSoap,
+  faWifi,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const categories: Category[] = [
-  { id: "all", label: "Todos", icon: "⌂" },
-  { id: "beach", label: "Playa", icon: "☼" },
-  { id: "views", label: "Vistas increíbles", icon: "◒" },
-  { id: "cabins", label: "Cabañas", icon: "⌂" },
-  { id: "pools", label: "Piscinas", icon: "♒" },
-  { id: "design", label: "Diseño", icon: "◇" },
-  { id: "trending", label: "Tendencias", icon: "↗" },
+  { id: "all", label: "Todos", icon: faHouse },
+  { id: "beach", label: "Playa", icon: faUmbrellaBeach },
+  { id: "views", label: "Vistas increíbles", icon: faMountainSun },
+  { id: "cabins", label: "Cabañas", icon: faHouse },
+  { id: "pools", label: "Piscinas", icon: faPersonSwimming },
+  { id: "design", label: "Diseño", icon: faPalette },
+  { id: "trending", label: "Tendencias", icon: faArrowTrendUp },
 ];
 
 export const listings: Listing[] = [
@@ -22,14 +35,14 @@ export const listings: Listing[] = [
 ];
 
 const amenityList = [
-  { id: "wifi", label: "Wifi", icon: "⌁" },
-  { id: "pool", label: "Piscina", icon: "♒" },
-  { id: "kitchen", label: "Cocina", icon: "♨" },
-  { id: "parking", label: "Estacionamiento gratuito", icon: "P" },
-  { id: "air", label: "Aire acondicionado", icon: "❄" },
-  { id: "beach", label: "Acceso a la playa", icon: "☼" },
-  { id: "washer", label: "Lavadora", icon: "◉" },
-  { id: "view", label: "Vista al mar", icon: "◒" },
+  { id: "wifi", label: "Wifi", icon: faWifi },
+  { id: "pool", label: "Piscina", icon: faPersonSwimming },
+  { id: "kitchen", label: "Cocina", icon: faKitchenSet },
+  { id: "parking", label: "Estacionamiento gratuito", icon: faParking },
+  { id: "air", label: "Aire acondicionado", icon: faSnowflake },
+  { id: "beach", label: "Acceso a la playa", icon: faUmbrellaBeach },
+  { id: "washer", label: "Lavadora", icon: faSoap },
+  { id: "view", label: "Vista al mar", icon: faMountainSun },
 ];
 
 export const rooms: Room[] = listings.map((listing) => ({
