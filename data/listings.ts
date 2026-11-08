@@ -24,14 +24,14 @@ export const categories: Category[] = [
 ];
 
 export const listings: Listing[] = [
-  { id: "tucacas-1", title: "Apartamento frente al mar", location: "Tucacas, Venezuela", imageUrl: "/stay-coast.svg", pricePerNight: 95, rating: 4.92, reviewCount: 38, badge: "Favorito entre huéspedes", category: "beach" },
-  { id: "island-2", title: "Refugio tropical con piscina", location: "Morrocoy, Venezuela", imageUrl: "/stay-pool.svg", pricePerNight: 128, rating: 4.88, reviewCount: 24, category: "pools" },
-  { id: "cabin-3", title: "Cabaña entre las montañas", location: "Mérida, Venezuela", imageUrl: "/stay-cabin.svg", pricePerNight: 72, rating: 4.97, reviewCount: 51, badge: "Favorito entre huéspedes", category: "cabins" },
-  { id: "coast-4", title: "Casa luminosa con vistas", location: "Chichiriviche, Venezuela", imageUrl: "/stay-house.svg", pricePerNight: 110, rating: 4.81, reviewCount: 19, category: "views" },
-  { id: "island-5", title: "Villa tranquila junto al mar", location: "Cayo Sal, Venezuela", imageUrl: "/stay-coast.svg", pricePerNight: 155, rating: 4.95, reviewCount: 42, category: "beach" },
-  { id: "design-6", title: "Loft de diseño natural", location: "Valencia, Venezuela", imageUrl: "/stay-house.svg", pricePerNight: 84, rating: 4.76, reviewCount: 16, category: "design" },
-  { id: "cabin-7", title: "Casa de campo para desconectar", location: "Galipán, Venezuela", imageUrl: "/stay-cabin.svg", pricePerNight: 102, rating: 4.9, reviewCount: 28, category: "cabins" },
-  { id: "island-8", title: "Suite con terraza al Caribe", location: "Tucacas, Venezuela", imageUrl: "/stay-pool.svg", pricePerNight: 139, rating: 4.86, reviewCount: 33, category: "trending" },
+  { id: "tucacas-1", title: "Apartamento frente al mar", location: "Tucacas, Venezuela", imageUrl: "/stays/tucacas-apartment.webp", imageFallbackUrl: "/stay-coast.svg", pricePerNight: 95, rating: 4.92, reviewCount: 38, badge: "Favorito entre huéspedes", category: "beach", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/tucacas-apartment-" + number + ".webp", alt: "Fotografía " + number + " de tucacas-1", fallbackSrc: "/stay-coast.svg" })) },
+  { id: "island-2", title: "Refugio tropical con piscina", location: "Morrocoy, Venezuela", imageUrl: "/stays/morrocoy-pool.webp", imageFallbackUrl: "/stay-pool.svg", pricePerNight: 128, rating: 4.88, reviewCount: 24, category: "pools", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/morrocoy-pool-" + number + ".webp", alt: "Fotografía " + number + " de island-2", fallbackSrc: "/stay-pool.svg" })) },
+  { id: "cabin-3", title: "Cabaña entre las montañas", location: "Mérida, Venezuela", imageUrl: "/stays/merida-cabin.webp", imageFallbackUrl: "/stay-cabin.svg", pricePerNight: 72, rating: 4.97, reviewCount: 51, badge: "Favorito entre huéspedes", category: "cabins", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/merida-cabin-" + number + ".webp", alt: "Fotografía " + number + " de cabin-3", fallbackSrc: "/stay-cabin.svg" })) },
+  { id: "coast-4", title: "Casa luminosa con vistas", location: "Chichiriviche, Venezuela", imageUrl: "/stays/chichiriviche-house.webp", imageFallbackUrl: "/stay-house.svg", pricePerNight: 110, rating: 4.81, reviewCount: 19, category: "views", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/chichiriviche-house-" + number + ".webp", alt: "Fotografía " + number + " de coast-4", fallbackSrc: "/stay-house.svg" })) },
+  { id: "island-5", title: "Villa tranquila junto al mar", location: "Cayo Sal, Venezuela", imageUrl: "/stays/cayo-sal-villa.webp", imageFallbackUrl: "/stay-coast.svg", pricePerNight: 155, rating: 4.95, reviewCount: 42, category: "beach", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/cayo-sal-villa-" + number + ".webp", alt: "Fotografía " + number + " de island-5", fallbackSrc: "/stay-coast.svg" })) },
+  { id: "design-6", title: "Loft de diseño natural", location: "Valencia, Venezuela", imageUrl: "/stays/valencia-loft.webp", imageFallbackUrl: "/stay-house.svg", pricePerNight: 84, rating: 4.76, reviewCount: 16, category: "design", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/valencia-loft-" + number + ".webp", alt: "Fotografía " + number + " de design-6", fallbackSrc: "/stay-house.svg" })) },
+  { id: "cabin-7", title: "Casa de campo para desconectar", location: "Galipán, Venezuela", imageUrl: "/stays/galipan-country-house.webp", imageFallbackUrl: "/stay-cabin.svg", pricePerNight: 102, rating: 4.9, reviewCount: 28, category: "cabins", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/galipan-country-house-" + number + ".webp", alt: "Fotografía " + number + " de cabin-7", fallbackSrc: "/stay-cabin.svg" })) },
+  { id: "island-8", title: "Suite con terraza al Caribe", location: "Tucacas, Venezuela", imageUrl: "/stays/tucacas-suite.webp", imageFallbackUrl: "/stay-pool.svg", pricePerNight: 139, rating: 4.86, reviewCount: 33, category: "trending", galleryImages: [2, 3, 4, 5].map((number) => ({ src: "/stays/tucacas-suite-" + number + ".webp", alt: "Fotografía " + number + " de island-8", fallbackSrc: "/stay-pool.svg" })) },
 ];
 
 const amenityList = [
@@ -48,13 +48,7 @@ const amenityList = [
 export const rooms: Room[] = listings.map((listing) => ({
   ...listing,
   description: "Disfruta de una estancia cómoda y relajada en este alojamiento luminoso. Su ubicación es ideal para descubrir la costa y descansar después de un día de aventura.",
-  images: [
-    { src: listing.imageUrl, alt: listing.title },
-    { src: "/stay-house.svg", alt: `Interior acogedor de ${listing.title}` },
-    { src: "/stay-pool.svg", alt: `Terraza de ${listing.title}` },
-    { src: "/stay-cabin.svg", alt: `Vista exterior de ${listing.title}` },
-    { src: "/stay-coast.svg", alt: `Zona de descanso de ${listing.title}` },
-  ],
+  images: [{ src: listing.imageUrl, alt: listing.title, fallbackSrc: listing.imageFallbackUrl }, ...listing.galleryImages],
   host: { name: "María", yearsHosting: 5, responseRate: "100%", isSuperhost: true },
   amenities: amenityList,
   maxGuests: 6,

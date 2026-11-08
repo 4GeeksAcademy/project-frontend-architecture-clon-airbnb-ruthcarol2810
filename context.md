@@ -55,6 +55,7 @@ El usuario es una persona que busca un alojamiento para un viaje y quiere compar
 
 ## Navegación y criterios de implementación
 
+- El favicon del sitio es el logotipo propio definido en `app/icon.svg`; debe mantenerse como única fuente de favicon.
 - Las tarjetas de Inicio y Catálogo enlazan con el detalle del alojamiento correspondiente.
 - Los iconos de interfaz usan Font Awesome. Los favoritos se comparten entre tarjetas y ficha de detalle y se conservan en `sessionStorage` durante la sesión actual del navegador.
 - La acción de reserva es demostrativa: no procesa pagos ni guarda una reserva persistente.

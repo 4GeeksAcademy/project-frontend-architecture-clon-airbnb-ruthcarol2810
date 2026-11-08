@@ -5,6 +5,8 @@ export interface Listing {
   title: string;
   location: string;
   imageUrl: string;
+  imageFallbackUrl?: string;
+  galleryImages: RoomImage[];
   pricePerNight: number;
   rating: number;
   reviewCount?: number;
@@ -36,6 +38,7 @@ export interface Host {
 export interface RoomImage {
   src: string;
   alt: string;
+  fallbackSrc?: string;
 }
 
 export interface Review {

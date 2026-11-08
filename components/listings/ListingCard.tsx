@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Listing } from "@/types/listing";
@@ -16,13 +17,14 @@ export interface ListingCardProps {
 export const ListingCard = ({ listing, priority = false }: ListingCardProps) => {
   const { favoriteIds, toggleFavorite } = useFavorites();
   const isFavorite = favoriteIds.includes(listing.id);
+  const [imageSrc, setImageSrc] = useState(listing.imageUrl);
 
   return (
   <article className="group min-w-0">
     <div className="relative">
       <Link href={`/rooms/${listing.id}`} aria-label={`Ver ${listing.title}`} className="block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-500">
         <div className="relative aspect-[1.08] overflow-hidden rounded-xl bg-neutral-100">
-        <Image src={listing.imageUrl} alt={listing.title} fill priority={priority} sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, 25vw" className="object-cover transition duration-300 group-hover:scale-[1.03]" />
+        <Image src={imageSrc} alt={listing.title} fill priority={priority} sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, 25vw" onError={() => { if (listing.imageFallbackUrl && imageSrc !== listing.imageFallbackUrl) setImageSrc(listing.imageFallbackUrl); }} className="object-cover transition duration-300 group-hover:scale-[1.03]" />
         {listing.badge && <span className="absolute left-3 top-3 rounded-full bg-white px-3 py-1.5 text-xs font-semibold shadow-sm">{listing.badge}</span>}
         </div>
       </Link>

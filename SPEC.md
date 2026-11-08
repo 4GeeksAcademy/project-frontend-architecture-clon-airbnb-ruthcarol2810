@@ -74,6 +74,7 @@ La configuración actual del proyecto utiliza Next.js `16.4.5`, React `19.3.0`, 
 
 ## 5. Navegación y comportamiento general
 
+- El favicon del sitio debe corresponder al logotipo propio y definirse únicamente mediante `app/icon.svg`.
 - La navegación interna debe utilizar siempre el componente `Link` de Next.js.
 - No utilizar enlaces planos con `<a href="...">` para navegar entre las vistas internas.
 - La navegación entre `/`, `/catalog` y `/rooms/[id]` debe funcionar sin recargar completamente el navegador.

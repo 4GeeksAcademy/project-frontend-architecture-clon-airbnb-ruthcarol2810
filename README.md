@@ -11,6 +11,7 @@ Frontend educativo inspirado en la experiencia de Airbnb para explorar alojamien
   - Categorías de exploración.
   - Carruseles de alojamientos agrupados por destino o tema.
   - Tarjetas reutilizables con imagen, precio, ubicación y valoración.
+  - Fotografías locales de portada para los alojamientos, con ilustraciones SVG como fallback si una imagen no carga.
   - Favoritos con corazón vacío que se rellena en rosa y se sincroniza con el detalle durante la sesión del navegador.
 - Catálogo de resultados con:
   - Número de alojamientos encontrados.
@@ -119,6 +120,7 @@ Las páginas utilizan el App Router y los componentes se organizan por responsab
 │   ├── room/
 │   └── search/
 ├── public/
+│   └── stays/             # Fotografías locales de las estancias
 ├── assets-dev/
 │   └── reference-image/
 ├── .ai-context/
