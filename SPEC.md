@@ -171,10 +171,12 @@ La página debe incluir obligatoriamente estas cinco secciones:
    - Nombre y descripción breve de cada servicio.
 
 5. **Tarjeta de reserva**
-   - Precio por noche.
+  - Total de la estancia y precio por noche.
+  - Actualización del total según las noches seleccionadas en el calendario.
    - Contador de huéspedes.
    - Controles para aumentar o reducir huéspedes.
    - Botón principal para iniciar la reserva.
+  - En escritorio, permanece sticky durante el desplazamiento del contenido del detalle.
 
 La composición puede complementar estas cinco secciones con:
 
@@ -262,6 +264,8 @@ El detalle de una habitación puede incluir además:
 - Ubicación.
 - Datos necesarios para la tarjeta de reserva.
 
+En el detalle, el calendario permite seleccionar hasta tres días consecutivos disponibles (equivalentes a un máximo de dos noches) y la tarjeta de reserva actualiza el total de la estancia. La acción de reservar es demostrativa: no procesa pagos ni crea una reserva persistente. En escritorio, la tarjeta permanece visible durante el desplazamiento; en pantallas menores se muestra en el flujo normal del contenido.
+
 ## 9. Proceso de implementación
 
 1. Revisar las capturas de referencia y el documento `context.md`.
@@ -335,6 +339,8 @@ El diseño debe comenzar en un viewport de 375 px de ancho. Este viewport debe q
 - Los corazones de favorito aparecen vacíos por defecto; al activarlos se rellenan de rosa y el mismo estado se refleja en el catálogo y el detalle durante la sesión.
 - El catálogo permite ordenar por precio ascendente y descendente.
 - El contador de huéspedes modifica el número mostrado.
+- El calendario permite seleccionar fechas disponibles y la tarjeta de reserva muestra el total correspondiente a las noches seleccionadas junto al precio por noche.
+- La tarjeta de reserva usa posicionamiento sticky en escritorio y permanece en el flujo normal en móvil.
 - La galería permite avanzar y retroceder entre fotografías.
 - `useState` se utiliza en al menos tres interacciones distintas.
 - `useEffect` simula la carga de datos en al menos dos páginas.
@@ -390,8 +396,6 @@ El archivo `context.md` de la raíz funciona como documento de contexto funciona
 Una vez completados y validados los requisitos obligatorios, pueden añadirse las siguientes mejoras:
 
 - Sustituir el placeholder del mapa por un mapa interactivo con pines.
-- Añadir selección de fecha de entrada y salida.
-- Calcular el precio total según el número de noches.
 - Añadir filtros adicionales de precio, capacidad o servicios.
 - Añadir una galería con miniaturas.
 

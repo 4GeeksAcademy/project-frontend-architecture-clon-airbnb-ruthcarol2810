@@ -43,8 +43,8 @@ La página de detalle presenta la información completa de un alojamiento selecc
 - Información del anfitrión: avatar de placeholder, nombre y años como anfitrión.
 - Cuadrícula de servicios: iconos y etiquetas.
 - Acción para guardar o quitar el alojamiento de favoritos, con el corazón vacío al inicio y rosa relleno al activarlo.
-- Tarjeta de reserva: precio por noche, contador de huéspedes y botón de acción.
-- Calendario visual de disponibilidad.
+- Tarjeta de reserva: total de la estancia, precio por noche, contador de huéspedes y botón de acción. En escritorio permanece sticky durante el desplazamiento; en móvil se presenta en el flujo normal.
+- Calendario visual de disponibilidad que permite seleccionar hasta tres días consecutivos (equivalentes a un máximo de dos noches) y actualiza el total mostrado en la tarjeta.
 - Resumen de valoración y reseñas.
 - Mapa de ubicación aproximada.
 - Indicador de carga.
@@ -57,6 +57,7 @@ El usuario es una persona que busca un alojamiento para un viaje y quiere compar
 
 - Las tarjetas de Inicio y Catálogo enlazan con el detalle del alojamiento correspondiente.
 - Los iconos de interfaz usan Font Awesome. Los favoritos se comparten entre tarjetas y ficha de detalle y se conservan en `sessionStorage` durante la sesión actual del navegador.
+- La acción de reserva es demostrativa: no procesa pagos ni guarda una reserva persistente.
 - Usar el componente `Link` de Next.js para la navegación interna; no usar etiquetas `<a href="...">` planas.
 - Cada componente debe vivir en su propio archivo dentro de `/components`.
 - Definir los componentes funcionales con `const`.
@@ -67,4 +68,4 @@ El usuario es una persona que busca un alojamiento para un viaje y quiere compar
 
 ## Ampliaciones opcionales
 
-Una vez completados los requisitos principales, se puede sustituir el placeholder del mapa por un mapa interactivo con pines para los alojamientos. También se pueden añadir selectores de fecha de entrada y salida y calcular el precio total según las noches seleccionadas.
+Una vez completados los requisitos principales, se puede sustituir el placeholder del mapa por un mapa interactivo con pines para los alojamientos.
