@@ -25,6 +25,22 @@ export const RoomExperience = ({ id }: { id: string }) => {
   const room = rooms.find((item) => item.id === id);
   if (!loaded) return <><Navbar/><LoadingState label="Cargando alojamiento" variant="detail"/></>;
   if (!room) return <><Navbar/><main className="mx-auto min-h-[50vh] w-full max-w-screen-2xl flex-1 px-5 py-16 sm:px-8"><h1 className="text-2xl font-semibold">No encontramos este alojamiento</h1><a href="/catalog" className="mt-4 inline-block underline">Volver al catálogo</a></main></>;
-  const toggleDay = (day: number) => setSelectedDays((days) => days.includes(day) ? days.filter((item) => item !== day) : [...days, day].slice(-2));
-  return <><Navbar/><main className="mx-auto w-full max-w-screen-2xl flex-1 px-5 pb-8 sm:px-8"><RoomHeader title={room.title} listingId={room.id} location={room.location} rating={room.rating} reviewCount={room.reviewCount ?? 0}/><PhotoGallery images={room.images} activeIndex={activeImage} onIndexChange={setActiveImage}/><div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]"><div><div className="border-b py-6"><h2 className="text-lg font-semibold">Alojamiento entero · capacidad para {room.maxGuests} personas</h2><p className="mt-2 text-sm text-neutral-600">{room.description}</p></div><HostInfo {...room.host}/><AmenitiesGrid amenities={room.amenities}/><AvailabilityCalendar month="Noviembre 2026" availableDays={room.availableDays} selectedDays={selectedDays} onDaySelect={toggleDay}/><ReviewsSection rating={room.rating} reviewCount={room.reviewCount ?? 0} reviews={room.reviews}/><LocationMap areaLabel={room.areaLabel}/></div><div className="order-first py-6 lg:order-none"><BookingCard pricePerNight={room.pricePerNight} maxGuests={room.maxGuests} guests={guests} onGuestsChange={setGuests} onReserve={() => window.alert(`Reserva para ${guests} huéspedes`)} /></div></div></main><SiteFooter columns={footerColumns} year={2026}/></>;
+  const toggleDay = (day: number) => {
+    setSelectedDays((days) => {
+      if (days.includes(day)) return [];
+      if (!days.length || days.length === 3) return [day];
+
+      const start = Math.min(days[0], day);
+      const end = Math.max(days[0], day);
+      const range = Array.from({ length: end - start + 1 }, (_, index) => start + index);
+      const rangeIsAvailable = range.every((rangeDay) => room.availableDays.includes(rangeDay));
+
+      if (range.length <= 3 && rangeIsAvailable) return range;
+      return [day];
+    });
+  };
+  const selectedNights = Math.max(0, selectedDays.length - 1);
+  const totalPrice = selectedNights * room.pricePerNight;
+
+  return <><Navbar/><main className="mx-auto w-full max-w-screen-2xl flex-1 px-5 pb-8 sm:px-8"><RoomHeader title={room.title} listingId={room.id} location={room.location} rating={room.rating} reviewCount={room.reviewCount ?? 0}/><PhotoGallery images={room.images} activeIndex={activeImage} onIndexChange={setActiveImage}/><div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_360px]"><div><div className="border-b py-6"><h2 className="text-lg font-semibold">Alojamiento entero · capacidad para {room.maxGuests} personas</h2><p className="mt-2 text-sm text-neutral-600">{room.description}</p></div><HostInfo {...room.host}/><AmenitiesGrid amenities={room.amenities}/><AvailabilityCalendar month="Noviembre 2026" availableDays={room.availableDays} selectedDays={selectedDays} onDaySelect={toggleDay}/><ReviewsSection rating={room.rating} reviewCount={room.reviewCount ?? 0} reviews={room.reviews}/><LocationMap areaLabel={room.areaLabel}/></div><div className="order-first py-6 lg:order-none lg:self-stretch"><BookingCard pricePerNight={room.pricePerNight} totalPrice={totalPrice} selectedNights={selectedNights} maxGuests={room.maxGuests} guests={guests} onGuestsChange={setGuests} onReserve={() => window.alert(`Reserva para ${guests} huéspedes`)} /></div></div></main><SiteFooter columns={footerColumns} year={2026}/></>;
 };
